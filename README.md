@@ -6,7 +6,6 @@ bash init.sh
 
 # Update Config Files
 vim config.json
-vim dashboard.json
 
 # Configure PM2
 pm2 start config.json
