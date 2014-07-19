@@ -34,7 +34,7 @@
    },
    "apps":[
       {
-         "name":"server",
+         "name":"server-<demo>",
          "script":"./server.coffee",
          "instances":1,
          "watch": [
