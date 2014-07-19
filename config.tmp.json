@@ -39,6 +39,7 @@
          "instances":1,
          "ignoreWatch": [
             "[\\/\\\\]\\./",
+            "assets",
             "node_modules",
             "logs"
          ],
