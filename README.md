@@ -37,6 +37,6 @@ pm2 logs all
 ```
 
 # Kill PM2 Deamon
-``
+```
 pm2 kill
 ```
