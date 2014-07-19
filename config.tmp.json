@@ -1,10 +1,10 @@
 {
    "general":{
-      "company":"<demo>",
-      "logo":"<demo>",
+      "company":"Dintopia",
+      "logo":"Dintopia",
       "delimeter":" · ",
       "description":[
-         "<demo>"
+         "A place of to find great deals on dinners!"
       ],
       "default":"/",
       "port": "3000"
@@ -12,7 +12,7 @@
    "cookies":{
       "session":{
          "key":"usrs",
-         "secret":"asdfasdf"
+         "secret":"d1R9N46o08cKU9H0IO0b"
       }
    },
    "orm":{
@@ -26,8 +26,8 @@
       "password":"<demo>"
    },
    "stripe":{
-      "production":"",
-      "development":""
+      "production":"sk_live_4QvBvh3rwz4Ns2U4Wpe58IEs",
+      "development":"sk_test_4QvBMnt6sHnA6D0BPiueJJuj"
    },
    "icons":{
       "search":""
