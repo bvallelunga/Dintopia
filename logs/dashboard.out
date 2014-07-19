@@ -1,0 +1,77 @@
+2014-07-19T07:17:36.388Z - [32minfo[39m: Configuration Loading config file from dashboard.json
+2014-07-19T07:17:36.389Z - [32minfo[39m: Configuration Loaded default configuration from /usr/local/lib/node_modules/pm2-web/server/components/../../config.json
+2014-07-19T07:17:36.390Z - [32minfo[39m: Configuration Final configuration: {
+  "www": {
+    "host": "localhost",
+    "address": "127.0.0.1",
+    "port": 9000,
+    "authentication": {
+      "enabled": true,
+      "username": "demo",
+      "password": "**** LA LA LA, NOTHING TO SEE HERE ****"
+    },
+    "ssl": {
+      "enabled": false,
+      "upgrade": true,
+      "port": 9001,
+      "passphrase": "**** LA LA LA, NOTHING TO SEE HERE ****",
+      "key": "/path/to/key/file",
+      "certificate": "/path/to/certificate/file"
+    }
+  },
+  "ws": {
+    "frequency": 500
+  },
+  "pm2": [
+    {
+      "host": "localhost",
+      "rpc": 6666,
+      "events": 6667
+    }
+  ],
+  "updateFrequency": 5000,
+  "forceHardReload": false,
+  "logs": {
+    "max": 1000
+  },
+  "hostPurge": {
+    "frequency": 10000,
+    "cutoff": 60000
+  },
+  "graph": {
+    "datapoints": 1000,
+    "distribution": [
+      40,
+      25,
+      10,
+      10,
+      5
+    ]
+  },
+  "mdns": {
+    "enabled": false,
+    "name": "pm2"
+  },
+  "config": "dashboard.json",
+  "requiredPm2Version": "0.7.7"
+}
+2014-07-19T07:17:36.399Z - [32minfo[39m: Express server listening on 127.0.0.1:9000
+2014-07-19T07:17:36.401Z - [32minfo[39m: PM2Listener localhost RPC socket ready
+2014-07-19T07:17:36.401Z - [32minfo[39m: PM2Listener localhost is running pm2 LATEST
+[90mGET /js/vendor/angular/angular-sanitize.js [32m200 [90m5.725 ms - 19990[0m
+[90mGET /js/vendor/angular/angular-route.js [32m200 [90m7.406 ms - 31292[0m
+[90mGET /js/vendor/bootstrap/ui-bootstrap-tpls-0.7.0.min.js [32m200 [90m6.815 ms - 51488[0m
+[90mGET /js/vendor/reconnecting-websocket/reconnecting-websocket.min.js [32m200 [90m6.750 ms - 1788[0m
+[90mGET /js/vendor/highcharts/highcharts-all.js [32m200 [90m7.678 ms - 185744[0m
+[90mGET /js/vendor/angular/angular.js [32m200 [90m16.394 ms - 716215[0m
+[90mGET /css/reset.css [32m200 [90m3.214 ms - 1092[0m
+[90mGET /css/style.css [32m200 [90m2.748 ms - 9580[0m
+[90mGET /js/vendor/highcharts-ng/highcharts-ng.min.js [32m200 [90m2.726 ms - 3341[0m
+[90mGET /css/bootstrap.css [32m200 [90m3.977 ms - 124228[0m
+[90mGET /js/monitor.js [32m200 [90m2.898 ms - 191636[0m
+[90mGET /css/font-awesome.min.css [32m200 [90m1.301 ms - 22084[0m
+[90mGET /js/partials/connecting.html [32m200 [90m1.320 ms - 107[0m
+[90mGET /img/satinweave.png [32m200 [90m1.766 ms - 137[0m
+[90mGET /img/logo@2x.png [32m200 [90m2.650 ms - 18194[0m
+[90mGET /js/partials/host.html [32m200 [90m3.160 ms - 5006[0m
+[90mGET /font/fontawesome-webfont.woff?v=3.2.1 [32m200 [90m1.884 ms - 43572[0m

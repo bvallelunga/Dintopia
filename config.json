@@ -1,0 +1,65 @@
+{
+   "general":{
+      "company":"<demo>",
+      "logo":"<demo>",
+      "delimeter":" · ",
+      "description":[
+         "<demo>"
+      ],
+      "default":"/",
+      "port": "3000"
+   },
+   "cookies":{
+      "session":{
+         "key":"usrs",
+         "secret":"asdfasdf"
+      }
+   },
+   "orm":{
+      "preload":false,
+      "sync":true,
+      "debug":false,
+      "protocol":"mysql:",
+      "host":"127.0.0.1",
+      "database":"<demo>",
+      "user":"root",
+      "password":"<demo>"
+   },
+   "stripe":{
+      "production":"",
+      "development":""
+   },
+   "icons":{
+      "search":""
+   },
+   "apps":[
+      {
+         "name":"server",
+         "script":"./server.coffee",
+         "instances":1,
+         "watch": [
+            "lib",
+            "views",
+            "routes",
+            "server.coffee"
+         ],
+         "env":{
+            "NODE_ENV":"development"
+         },
+         "merge_logs":"true",
+         "error_file":"logs/server.error",
+         "out_file":"logs/server.out",
+         "pid_file":"logs/server"
+      },
+      {
+         "name":"dashboard",
+         "script":"/usr/local/bin/pm2-web",
+         "args":"['--config=dashboard.json']",
+         "instances":1,
+         "merge_logs":"true",
+         "error_file":"logs/dashboard.error",
+         "out_file":"logs/dashboard.out",
+         "pid_file":"logs/dashboard"
+      }
+   ]
+}
