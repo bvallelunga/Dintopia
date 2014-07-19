@@ -53,7 +53,7 @@
       },
       {
          "name":"dashboard",
-         "script":"/usr/local/bin/pm2-web",
+         "script":"/usr/bin/pm2-web",
          "args":"['--config=dashboard.json']",
          "instances":1,
          "merge_logs":"true",

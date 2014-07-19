@@ -1,8 +1,9 @@
 # Setup Enviroment
 
 ``` bash
-# Copy Config TMP
+# Copy TMP Configs
 cp config.tmp.json config.json
+cp dashboard.tmp.json dashboard.json
 
 # Activate Submodules
 git submodule init
