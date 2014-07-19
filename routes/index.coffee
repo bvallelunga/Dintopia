@@ -1,7 +1,7 @@
 module.exports = (app)->
-   require("./routes") (routes)->
-      async.each routes, (route, next)->
-         if route.route
-            route.route app, routes
-         next()
-      , -> app.all "*", routes.error
+    require("./routes") (routes)->
+        for name, route of routes
+            if route.route
+                route.route app, routes
+
+        app.all "*", routes.error
