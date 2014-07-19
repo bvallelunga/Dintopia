@@ -37,12 +37,12 @@
          "name":"server-<demo>",
          "script":"./server.coffee",
          "instances":1,
-         "watch": [
-            "lib",
-            "views",
-            "routes",
-            "server.coffee"
+         "ignoreWatch": [
+            "[\\/\\\\]\\./",
+            "node_modules",
+            "logs"
          ],
+         "watch": "/home/<demo>/dintopia",
          "env":{
             "NODE_ENV":"development"
          },
