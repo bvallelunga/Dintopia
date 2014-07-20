@@ -1,0 +1,23 @@
+@import '../compless/all';
+
+body > .footer {
+   width: 100%;
+   padding: 30px;
+   color: #ededed;
+   background: RGBA(43, 45, 46, 1);
+   .box-sizing(border-box);
+   .clearfix();
+
+   .centered {
+      width: 980px;
+      margin: 0 auto;
+
+      a {
+         color: lighten(#0099ff, 20%);
+
+         &:hover {
+            text-decoration: underline;
+         }
+      }
+   }
+}

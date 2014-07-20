@@ -1,9 +1,61 @@
 <% include ../includes/start.html %>
 <div class="hero">
-    <div class="darkener"></div>
-    <div class="header">
-        <div class="logo"><%= logo %></div>
-        <div class="authorize">Authorize with Twitter</div>
-    </div>
+   <div class="darkener"></div>
+      <div class="header">
+      <div class="logo">
+         <span class="<%= icons.logo %>"></span>
+         <span><%= logo %></span>
+      </div>
+      <div class="authorize">Authorize with Twitter</div>
+   </div>
+   <div class="main-info">
+      <div class="message">Hungry?</div>
+      <div class="submessage">Find affordable grub in your neighborhood</div>
+      <form class="search-form" action="/search/" method="get">
+         <input type="input" class="input google-search" name="q" placeholder="Where do you want to eat?"/>
+         <input type="submit" class="button" value="Search"/>
+      </form>
+   </div>
+</div>
+<div class="discover">
+   <div class="header">Find Your Appetite</div>
+   <div class="subheader">The best deals close to you.</div>
+   <div class="grid">
+      <div class="group">
+         <a href="#" class="item" style="background-image:url('http://www.foodandwine.com/images/sys/201010-best-burger-custom-house-tavern-ss.jpg')">
+            <div class="darkener"></div>
+            <div class="information">
+               <div class="meal">Big Ass Burger</div>
+               <div class="company">Custom Burgers</div>
+               <div class="distance">1 mile away...</div>
+            </div>
+            <div class="pricing">
+               <div class="price-old">$25</div>
+               <div class="price-new">$10</div>
+            </div>
+         </a>
+         <a href="#" class="item large" style="background-image:url('http://aht.seriouseats.com/images/20101004-Custom-Bugrer-3burgers.jpg')">
+            <div class="darkener"></div>
+            <div class="information">
+               <div class="meal">Big Ass Burger</div>
+               <div class="company">Custom Burgers</div>
+               <div class="distance">1 mile away...</div>
+            </div>
+            <div class="pricing">
+               <div class="price-old">$25</div>
+               <div class="price-new">$10</div>
+            </div>
+         </a>
+      </div>
+      <div class="group">
+         <div class="item"></div>
+         <div class="item"></div>
+         <div class="item"></div>
+      </div>
+      <div class="group">
+         <div class="item large"></div>
+         <div class="item"></div>
+      </div>
+   </div>
 </div>
 <% include ../includes/footer.html %>
