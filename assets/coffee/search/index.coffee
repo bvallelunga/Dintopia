@@ -9,13 +9,38 @@ $ ->
    if config.search
       setUpMap address: config.search
    else if navigator.geolocation
-      navigator.geolocation.getCurrentPosition (search)->
-         coords = search.coords
-         setUpMap latLng: new google.maps.LatLng coords.latitude, coords.longitude
+      localLatLng (latLng)->
+         setUpMap latLng: new google.maps.LatLng latLng.latitude, latLng.longitude
 
 $(window).resize ->
    $("body > .search").css
       height: "#{$(window).outerHeight()- $("body > .header").outerHeight()}px"
+
+localLatLng = (cb)->
+   navigator.geolocation.getCurrentPosition (search)->
+      cb search.coords
+
+toRad = (num)->
+   return num * Math.PI / 180
+
+haversine = (start, end, options)->
+   km    = 6371
+   mile  = 3960
+   options ?= {}
+
+   R = if options.unit is 'mile' then mile else km
+
+   dLat = toRad (end.latitude - start.latitude)
+   dLon = toRad (end.longitude - start.longitude)
+   lat1 = toRad start.latitude
+   lat2 = toRad end.latitude
+   a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2)
+   c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
+
+   if options.threshold
+      return options.threshold > (R * c)
+   else
+      return R * c
 
 setUpMap = (options)->
    geocoder = new google.maps.Geocoder()
@@ -46,6 +71,16 @@ setUpMap = (options)->
          lat = parseFloat($(@).data("lat"))
          ln  = parseFloat($(@).data("lng"))
          latLng = new google.maps.LatLng(lat, ln)
+
+         localLatLng (myLatLng)=>
+            distance = haversine(
+               latitude: lat
+               longitude: ln
+            , myLatLng,
+               unit: 'mile'
+            )
+
+            $(@).find(".distance").text "#{distance.toFixed(2)} miles away..."
 
          marker = new google.maps.Marker
             position: latLng

@@ -1,2 +1,2 @@
 //ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js
-//maps.googleapis.com/maps/api/js?libraries=places&sensor=false
+//maps.googleapis.com/maps/api/js?libraries=places&geometry&sensor=false&v=3
