@@ -3,6 +3,7 @@ module.exports =
    models   : require './models'
    twitter  : require './twitter'
    engines  : require './engines'
+   redis    : require './redis'
    error    : require './error'
    init     : (ejs)->
       @core.helpers()

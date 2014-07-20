@@ -1,3 +1,4 @@
+crypto = require 'crypto'
 rand = require 'generate-key'
 
 module.exports = (db, models)->
@@ -17,15 +18,39 @@ module.exports = (db, models)->
          pub_id: db.enforce.unique()
       methods:
          score: (company, cb)->
-            models.visits.count
-               user: @
-               company: company
+            async.parallel
+               visitCount:
+                  Promise (resolve)->
+                     models.visits.count
+                        user: @
+                        company: company
+                     ,
+                        resolve
+               randomScoreCache:
+                  Promise (resolve)->
+                     lib.redis.hgetall crypto.createHash('md5').update(
+                        user: @id
+                        company: company.id
+                     ).digest 'hex',
+                     resolve
             ,
-               (err, count)->
+               (err, res)->
                   if err
                      lib.error.capture err
-                  else
-                     lib.engines.loyalty count, cb
+                     return
+
+                  loyaltyScore = lib.engines.loyalty res.visitCount
+                  randomScore = lib.engines.random res.randomScoreCache
+
+                  if randomScore is not cachedRandomScore.score
+                     lib.redis.hmset crypto.createHash('md5').update(
+                        user: @id
+                        company: company.id
+                     ).digest 'hex',
+                        score: randomScore
+                        timestamp: +moment()
+
+                  cb loyaltyScore + randomScore
 
    users.twitterAuth = (data)->
       Promise (resolve) ->
