@@ -3,7 +3,7 @@ module.exports = (req, res, next)->
       title: false
       js: req.coffee.renderTags "home"
       css: req.less.renderTags "home"
-      results: [
+      coupons: [
          pub_id   : "adsfasdfasdf"
          company  : "Custom Burgers"
          meal     : "Big Ass Burger"

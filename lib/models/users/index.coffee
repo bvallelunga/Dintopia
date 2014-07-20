@@ -9,14 +9,48 @@ module.exports = (db, models)->
          required: true
       screen_name: 'text'
       profile_image: 'text'
+      card: Object,
+      stripe: 'text'
    ,
       timestamp: true
       hooks:
          beforeCreate: ->
             @pub_id = rand.generateKey 15
+         afterCreate: (success)->
+            if success
+               @addStripe()
       validations:
          pub_id: db.enforce.unique()
       methods:
+         addStripe: ->
+            lib.stripe.customers.create
+               email: @email,
+            , (error, customer)=>
+               if !error and customer
+                  @stripe = customer.id
+                  @save()
+
+         addCard: (card)->
+            Promise (resolve) =>
+               lib.stripe.customers.createCard @stripe,
+                  card:
+                     name: card.name,
+                     number: card.number,
+                     exp_month: parseInt(card.expr.split("/")[0]),
+                     exp_year: parseInt(card.expr.split("/")[1]),
+                     cvc: card.cvc
+               , (error, card)=>
+                  unless error and card
+                     @card =
+                        id: card.id,
+                        name: card.name,
+                        number: card.last4
+                        type: card.brand.toLowerCase()
+
+                     @save(resolve)
+                  else
+                     resolve error
+
          score: (company, cb)->
             async.parallel
                visitCount:

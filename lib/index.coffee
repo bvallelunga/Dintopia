@@ -4,6 +4,7 @@ module.exports =
    twitter  : require './twitter'
    engines  : require './engines'
    redis    : require './redis'
+   stripe   : require './stripe'
    error    : require './error'
    init     : (ejs)->
       @core.helpers()

@@ -1,4 +1,4 @@
-$(document).ready ->
+$ ->
    $("body > .search").css
       top: $("body > .header").outerHeight()
       height: "#{$(window).outerHeight()- $("body > .header").outerHeight()}px"

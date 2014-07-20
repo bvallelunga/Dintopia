@@ -1,26 +1,26 @@
 <% include ../includes/header.html %>
 <div class="search">
    <div class="map"></div>
-   <div class="results">
-      <% $.each(results, function(key, result) { %>
-         <a href="/purchase/<%= result.pub_id %>/" class="item"
-            style="background-image:url('<%= result.image %>')"
-            data-lat="<%= result.coord.lat %>"
-            data-lng="<%= result.coord.lng %>"
+   <div class="coupons">
+      <% $.each(coupons, function(key, coupon) { %>
+         <a href="/purchase/<%= coupon.pub_id %>/" class="item"
+            style="background-image:url('<%= coupon.image %>')"
+            data-lat="<%= coupon.coord.lat %>"
+            data-lng="<%= coupon.coord.lng %>"
          >
             <div class="darkener"></div>
             <div class="purchase">Purchase</div>
             <div class="information">
                <div class="general left">
-                  <div class="meal"><%= result.meal %></div>
-                  <div class="company"><%= result.company %></div>
+                  <div class="meal"><%= coupon.meal %></div>
+                  <div class="company"><%= coupon.company %></div>
                </div>
                <div class="specific right">
                   <div class="pricing">
-                     <div class="price-new">$<%= result.price - (result.price * result.discount) %></div>
-                     <div class="price-old">$<%= result.price %></div>
+                     <div class="price-new">$<%= (coupon.price - (coupon.price * coupon.discount)).toFixed(2) %></div>
+                     <div class="price-old">$<%= coupon.price.toFixed(2) %></div>
                   </div>
-                  <div class="distance"><%= result.distance %>...</div>
+                  <div class="distance"><%= coupon.distance %>...</div>
                </div>
             </div>
          </a>

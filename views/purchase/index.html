@@ -1,0 +1,29 @@
+<% include ../includes/header.html %>
+<div class="purchase">
+    <form action="/purchase/<%= coupon.pub_id %>/" >
+        <div class="image" style="background-image: url('<%= coupon.image %>')">
+            <div class="darkerner"></div>
+            <div class="name"><%= coupon.meal %></div>
+            <div class="price">$<%= (coupon.price - (coupon.price * coupon.discount)).toFixed(2) %></div>
+        </div>
+        <% if($.isEmptyObject(user.card)) { %>
+            <div class="new-card">
+                <img class="logo"/>
+                <input class="input input-name" type="text" name="card[name]" placeholder="John Doe" value="<%= user.name %>" required="required"/>
+                <input class="input input-card" type="text" name="card[number]" placeholder="DDDD DDDD DDDD" required="required"/>
+                <input class="input input-expiration" type="text" name="card[expr]" placeholder="MM / YYYY" required="required"/>
+                <input class="input input-cvc" type="text" name="card[cvc]" placeholder="CVC" required="required"/>
+            </div>
+        <% } else { %>
+            <div class="card">
+                <img class="logo" src="/img/cards/<%= user.card.type %>.png"/>
+                <div class="name"><%= user.card.name %></div>
+                <div class="number"><%= user.card.number %></div>
+            </div>
+        <% } %>
+        <div class="bottom">
+            <input class="button" type="submit" value="Confirm Purchase"/>
+        </div>
+    </form>
+</div>
+<% include ../includes/end.html %>

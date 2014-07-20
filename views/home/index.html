@@ -31,26 +31,26 @@
    <div class="header">Find Your Appetite</div>
    <div class="subheader">The best deals close to you.</div>
    <div class="grid">
-      <% $.each(results, function(key, result) {
+      <% $.each(coupons, function(key, coupon) {
          var className = "item";
 
          if([1,5].indexOf(key) !== -1) {
             className += " large"
          }
       %>
-         <a href="/purchase/<%= result.pub_id %>"
+         <a href="/purchase/<%= coupon.pub_id %>"
             class="<%= className %>"
-            style="background-image:url('<%= result.image %>')"
+            style="background-image:url('<%= coupon.image %>')"
          >
             <div class="darkener"></div>
             <div class="information">
-               <div class="meal"><%= result.meal %></div>
-               <div class="company"><%= result.company %></div>
-               <div class="distance"><%= result.distance %>...</div>
+               <div class="meal"><%= coupon.meal %></div>
+               <div class="company"><%= coupon.company %></div>
+               <div class="distance"><%= coupon.distance %>...</div>
             </div>
             <div class="pricing">
-               <div class="price-old">$<%= result.price %></div>
-               <div class="price-new">$<%= result.price - (result.price * result.discount) %></div>
+               <div class="price-old">$<%= coupon.price.toFixed(2) %></div>
+               <div class="price-new">$<%= (coupon.price - (coupon.price * coupon.discount)).toFixed(2) %></div>
             </div>
          </a>
       <% }) %>

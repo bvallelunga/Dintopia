@@ -5,7 +5,7 @@ module.exports.index = (req, res, next)->
       config: search : req.param("q") or ""
       js: req.coffee.renderTags "search"
       css: req.less.renderTags "search"
-      results: [
+      coupons: [
          pub_id   : "adsfasdfasdf"
          company  : "Custom Burgers"
          meal     : "Big Ass Burger"
