@@ -42,7 +42,7 @@ setUpMap = (options)->
          zoomControl: true,
          zoomControlOptions: style:google.maps.ZoomControlStyle.SMALL
 
-      $(".results .item").each ->
+      $(".coupons .item").each ->
          lat = parseFloat($(@).data("lat"))
          ln  = parseFloat($(@).data("lng"))
          latLng = new google.maps.LatLng(lat, ln)

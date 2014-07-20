@@ -1,0 +1,58 @@
+@import '../compless/all';
+
+.information {
+   width: 490px;
+
+   .header, .subheader {
+      color: #333;
+      font-size: 26px;
+      font-weight: bold;
+      font-family: 'Source Sans Pro', sans-serif;
+      text-align: center;
+
+      &.subheader {
+         font-size: 22px;
+         color: RGBA(51, 51, 51, 0.8);
+      }
+   }
+
+   .voucher {
+      margin-top: 30px;
+      width: 100%;
+      padding: 15px;
+      background: #fff;
+      border: dashed 2px #333;
+      .box-sizing(border-box);
+
+      .logo {
+         text-align: center;
+         font-family: 'Source Sans Pro', sans-serif;
+         font-size: 26px;
+         font-weight: bold;
+         position: relative;
+
+         .fa {
+            position: relative;
+            top: -1.5px;
+            font-size: 18px;
+            .transform(rotate(270deg));
+         }
+      }
+
+      .instructions {
+         width: 100%;
+         margin-top: 10px;
+         .clearfix();
+
+         .left {
+            width: 250px;
+            margin-top: 8px;
+         }
+
+         img {
+            width: 200px;
+            height: 200px;
+         }
+      }
+   }
+}
