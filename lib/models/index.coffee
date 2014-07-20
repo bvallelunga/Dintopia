@@ -26,6 +26,11 @@ module.exports = orm.express config.orm,
       # Define Models
       models.users = require("./users") db, models
       models.companies = require("./companies") db, models
+      models.visits = require("./visits") db, models
+
+      # Associations
+      models.visits.hasOne "user", models.users, reverse: "visits"
+      models.visits.hasOne "company", models.companies, reverse: "visits"
 
       # Init
       unless initialized

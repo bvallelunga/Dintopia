@@ -1,7 +1,7 @@
 rand = require 'generate-key'
 
 module.exports = (db, models)->
-   users = db.define 'users',
+   db.define 'users',
       pub_id: 'text'
       name:
          type: 'text'
@@ -13,5 +13,14 @@ module.exports = (db, models)->
             @pub_id = rand.generateKey 15
       validations:
          pub_id: db.enforce.unique()
-
-   users
+      methods:
+         score: (company, cb)->
+            models.visits.count
+               user: @
+               company: company
+            ,
+               (err, count)->
+                  if err
+                     lib.error.capture err
+                  else
+                     lib.engines.loyalty count, cb
