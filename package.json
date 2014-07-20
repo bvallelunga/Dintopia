@@ -14,6 +14,7 @@
       "promisable-bluebird":"1.4.3",
       "crypto":"0.0.3",
       "generate-key":"0.0.6",
+      "moment":"2.7.0",
       "orm":"2.1.16",
       "orm-timestamps":"0.2.1",
       "orm-random":"0.0.1",

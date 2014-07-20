@@ -17,6 +17,7 @@ GLOBAL.async   = require "async"
 GLOBAL.config  = require "./config"
 GLOBAL.lib     = require "./lib"
 GLOBAL.Promise = require "promisable-bluebird"
+GLOBAL.moment  = require "moment"
 
 # Initialize Lib
 lib.init.bind(lib, ejs)()
