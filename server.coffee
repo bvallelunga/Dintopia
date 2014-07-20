@@ -12,6 +12,7 @@ locals         = require "./routes/locals"
 assets         = require "./assets"
 
 # Global Variables
+GLOBAL.$       = require "jquery"
 GLOBAL.async   = require "async"
 GLOBAL.config  = require "./config"
 GLOBAL.lib     = require "./lib"

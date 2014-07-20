@@ -1,13 +1,20 @@
-$(window).ready ->
+$(document).ready ->
    $("body > .search").css
       top: $("body > .header").outerHeight()
-      height: $("body > .header").outerHeight() - $(window).outerHeight()
+      height: "#{$(window).outerHeight()- $("body > .header").outerHeight()}px"
 
-   map = new google.maps.Map $('.map').get(0),
-      zoom: 4
-      center: new google.maps.LatLng(39, -108)
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+   geocoder = new google.maps.Geocoder()
+   geocoder.geocode
+      address: config.search
+   , (results, status)->
+      map = new google.maps.Map $('.map').get(0),
+         zoom     : 15
+         center   : results[0].geometry.location
+         mapTypeId: google.maps.MapTypeId.ROADMAP
+         disableDefaultUI: true
+         zoomControl: true,
+         zoomControlOptions: style:google.maps.ZoomControlStyle.SMALL
 
 $(window).resize ->
    $("body > .search").css
-      height: $("body > .header").outerHeight() - $(window).outerHeight()
+      height: "#{$(window).outerHeight()- $("body > .header").outerHeight()}px"
