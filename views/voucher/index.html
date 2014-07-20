@@ -2,7 +2,7 @@
 <div class="information">
    <div class="header">Thank You For Choosing Dintopia</div>
    <div class="subheader">
-      You saved <%= voucher.discount * 100 %>% on this deal!
+      You saved <%= (voucher.coupon.discount * 100).toFixed(2) %>% on this deal!
    </div>
    <div class="voucher">
       <div class="logo">
@@ -13,10 +13,12 @@
          <div class="left">
             Please give this voucher to the restaurant when entering. Thanks!
             <br><br>
+            If any difficulties occur don't hesitate to 310-625-7395.
+            <br><br>
             <strong>Address</strong><br>
-            <%= voucher.company %><br>
-            <%=: voucher.location.street %><br>
-            <%=: voucher.location.city %>, <%=: voucher.location.state %>, <%=: voucher.location.zip %>
+            <%= voucher.coupon.company.name %><br>
+            <%=: voucher.coupon.company.address %><br>
+            <%=: voucher.coupon.company.city %>, <%=: voucher.coupon.company.state %>, <%=: voucher.coupon.company.zip %>
          </div>
          <img class="right"
               src="http://www.barcodelink.net/barcode.php?url=<%= host + "/voucher/redeem/" + voucher.pub_id + "/" + user.pub_id %>&size=600"/>

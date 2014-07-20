@@ -44,13 +44,12 @@
          >
             <div class="darkener"></div>
             <div class="information">
-               <div class="meal"><%= coupon.meal %></div>
-               <div class="company"><%= coupon.company %></div>
-               <div class="distance"><%= coupon.distance %>...</div>
+               <div class="meal"><%= coupon.name %></div>
+               <div class="company"><%= coupon.company.name %></div>
             </div>
             <div class="pricing">
-               <div class="price-old">$<%= coupon.price.toFixed(2) %></div>
-               <div class="price-new">$<%= (coupon.price - (coupon.price * coupon.discount)).toFixed(2) %></div>
+               <div class="price-old">$<%= coupon.price.toFixed(0) %></div>
+               <div class="price-new">$<%= (coupon.price - (coupon.price * coupon.discount)).toFixed(0) %></div>
             </div>
          </a>
       <% }) %>

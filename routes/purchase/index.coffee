@@ -1,16 +1,16 @@
 module.exports.index = (req, res, next)->
-   res.render "purchase/index",
-      title: "Big Ass Burger"
-      js: req.coffee.renderTags "purchase"
-      css: req.less.renderTags "purchase"
-      coupon:
-         pub_id   : "adsfasdfasdf"
-         company  : "Custom Burgers"
-         meal     : "Big Ass Burger"
-         distance : "1 mile away"
-         price    : 25.00
-         discount : 0.05
-         image    : "http://www.foodandwine.com/images/sys/201010-best-burger-custom-house-tavern-ss.jpg"
+   req.models.coupons.one
+      pub_id: req.param "coupon"
+   , (error, coupon)->
+      unless error
+         res.render "purchase/index",
+            title: coupon.name
+            js: req.coffee.renderTags "purchase"
+            css: req.less.renderTags "purchase"
+            coupon: coupon
+      else
+         req.routes.error req, res, next
+         lib.error.capture error
 
 module.exports.purchase = (req, res, next)->
    req.models.users.get req.session.user.id, (error, user)->
@@ -19,6 +19,24 @@ module.exports.purchase = (req, res, next)->
             req.session.user = user
             req.session.save()
 
-            res.json
-               success: true,
-               next: "/voucher/" + user.pub_id + "/"
+            req.models.coupons.one
+               pub_id: req.param "coupon"
+            , (error, coupon)->
+               unless error
+                  coupon.createVoucher(user)
+                     .then (voucher)->
+                        res.json
+                           success: true,
+                           next: "/voucher/#{voucher.pub_id}/"
+
+                     .catch (error)->
+                        res.json success: fale
+                        lib.error.capture error
+
+               else
+                  res.json success: fale
+                  lib.error.capture error
+      else
+         res.json
+            success: true,
+            next: "/logout/"

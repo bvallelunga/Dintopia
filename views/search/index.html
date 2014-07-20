@@ -5,20 +5,20 @@
       <% $.each(coupons, function(key, coupon) { %>
          <a href="/purchase/<%= coupon.pub_id %>/" class="item"
             style="background-image:url('<%= coupon.image %>')"
-            data-lat="<%= coupon.coord.lat %>"
-            data-lng="<%= coupon.coord.lng %>"
+            data-lat="<%= coupon.company.latitude %>"
+            data-lng="<%= coupon.company.longitude %>"
          >
             <div class="darkener"></div>
             <div class="purchase">Purchase</div>
             <div class="information">
                <div class="general left">
-                  <div class="meal"><%= coupon.meal %></div>
-                  <div class="company"><%= coupon.company %></div>
+                  <div class="meal"><%= coupon.name %></div>
+                  <div class="company"><%= coupon.company.name %></div>
                </div>
                <div class="specific right">
                   <div class="pricing">
-                     <div class="price-new">$<%= (coupon.price - (coupon.price * coupon.discount)).toFixed(2) %></div>
-                     <div class="price-old">$<%= coupon.price.toFixed(2) %></div>
+                     <div class="price-new">$<%= (coupon.price - (coupon.price * coupon.discount)).toFixed(0) %></div>
+                     <div class="price-old">$<%= coupon.price.toFixed(0) %></div>
                   </div>
                   <div class="distance"><%= coupon.distance %>...</div>
                </div>

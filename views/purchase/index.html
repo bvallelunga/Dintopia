@@ -3,7 +3,7 @@
     <form action="/purchase/<%= coupon.pub_id %>/" >
         <div class="image" style="background-image: url('<%= coupon.image %>')">
             <div class="darkerner"></div>
-            <div class="name"><%= coupon.meal %></div>
+            <div class="name"><%= coupon.name %></div>
             <div class="price">$<%= (coupon.price - (coupon.price * coupon.discount)).toFixed(2) %></div>
         </div>
         <% if($.isEmptyObject(user.card)) { %>

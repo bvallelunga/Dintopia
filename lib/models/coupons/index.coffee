@@ -6,14 +6,21 @@ module.exports = (db, models)->
       name:
          type: 'text'
          required: true
-      original: Number
+      price: Number
       discount: Number
       image   : "text"
    ,
       timestamp: true
+      methods:
+         createVoucher: (user)->
+            Promise (resolve) =>
+               models.coupons.vouchers.create
+                  owner_id: user.id
+                  coupon_id:  @id
+               , resolve
       hooks:
          beforeCreate: ->
             @pub_id = rand.generateKey 15
-            @discount = Math.random() * 5
+            @discount = parseFloat (((Math.random() * 8) + 2)/100).toFixed 2
       validations:
          pub_id: db.enforce.unique()

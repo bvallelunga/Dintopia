@@ -9,7 +9,7 @@ module.exports = (db, models)->
       address: 'text'
       city: 'text'
       state: 'text'
-      country: 'text'
+      zip: 'text'
       latitude: 'number'
       longitude: 'number'
    ,
