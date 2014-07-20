@@ -4,10 +4,22 @@ $(document).ready ->
       height: "#{$(window).outerHeight()- $("body > .header").outerHeight()}px"
    $("body > .search .purchase").hAlign().vAlign()
 
+   options = {}
+
+   if config.search
+      setUpMap address: config.search
+   else if navigator.geolocation
+      navigator.geolocation.getCurrentPosition (search)->
+         coords = search.coords
+         setUpMap latLng: new google.maps.LatLng coords.latitude, coords.longitude
+
+$(window).resize ->
+   $("body > .search").css
+      height: "#{$(window).outerHeight()- $("body > .header").outerHeight()}px"
+
+setUpMap = (options)->
    geocoder = new google.maps.Geocoder()
-   geocoder.geocode
-      address: config.search
-   , (results, status)->
+   geocoder.geocode options, (results, status)->
       pin =
          url: "/img/search/pin.png"
          size: new google.maps.Size(50, 74),
@@ -51,7 +63,3 @@ $(document).ready ->
          google.maps.event.addListener marker, 'mouseout', =>
             $(@).removeClass "hover"
             marker.setIcon pin
-
-$(window).resize ->
-   $("body > .search").css
-      height: "#{$(window).outerHeight()- $("body > .header").outerHeight()}px"
