@@ -32,24 +32,27 @@ module.exports = (db, models)->
 
          addCard: (card)->
             Promise (resolve) =>
-               lib.stripe.customers.createCard @stripe,
-                  card:
-                     name: card.name,
-                     number: card.number,
-                     exp_month: parseInt(card.expr.split("/")[0]),
-                     exp_year: parseInt(card.expr.split("/")[1]),
-                     cvc: card.cvc
-               , (error, card)=>
-                  unless error and card
-                     @card =
-                        id: card.id,
+               unless @card
+                  lib.stripe.customers.createCard @stripe,
+                     card:
                         name: card.name,
-                        number: card.last4
-                        type: card.brand.toLowerCase()
+                        number: card.number,
+                        exp_month: parseInt(card.expr.split("/")[0]),
+                        exp_year: parseInt(card.expr.split("/")[1]),
+                        cvc: card.cvc
+                  , (error, card)=>
+                     unless error and card
+                        @card =
+                           id: card.id,
+                           name: card.name,
+                           number: card.last4
+                           type: card.brand.toLowerCase()
 
-                     @save(resolve)
-                  else
-                     resolve error
+                        @save(resolve)
+                     else
+                        resolve error
+               else
+                  resolve null, @
 
          score: (company, cb)->
             async.parallel

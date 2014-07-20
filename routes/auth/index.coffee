@@ -1,5 +1,4 @@
 module.exports.restrict = (req, res, next)->
-   console.log req.url
    unless req.session.user
       res.redirect "/twitter?next=#{encodeURIComponent(req.url)}"
    else
