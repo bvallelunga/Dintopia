@@ -1,9 +1,39 @@
 <% include ../includes/start.html %>
 <div class="hero">
-    <div class="darkener"></div>
-    <div class="header">
-        <div class="logo"><%= logo %></div>
-        <div class="authorize">Authorize with Twitter</div>
-    </div>
+   <div class="darkener"></div>
+      <div class="header">
+      <div class="logo">
+         <span class="<%= icons.logo %>"></span>
+         <span><%= logo %></span>
+      </div>
+      <div class="authorize">Authorize with Twitter</div>
+   </div>
+   <div class="main-info">
+      <div class="message">Hungry?</div>
+      <div class="submessage">Find affordable grub in your neighborhood.</div>
+      <form class="search-form" action="/search/" method="get">
+         <input type="input" class="input google-search" name="q" placeholder="Where do you want to eat?"/>
+         <input type="submit" class="button" value="Search"/>
+      </form>
+   </div>
+</div>
+<div class="discover">
+   <div class="header">Find Your Appetite</div>
+   <div class="subheader">The best deals close to you.</div>
+   <div class="grid">
+      <div class="group">
+         <div class="item"></div>
+         <div class="item large"></div>
+      </div>
+      <div class="group">
+         <div class="item"></div>
+         <div class="item"></div>
+         <div class="item"></div>
+      </div>
+      <div class="group">
+         <div class="item large"></div>
+         <div class="item"></div>
+      </div>
+   </div>
 </div>
 <% include ../includes/footer.html %>

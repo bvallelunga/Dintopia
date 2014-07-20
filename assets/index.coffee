@@ -9,7 +9,7 @@ pilers =
 
 module.exports.init = (app, srv)->
    for type, piler of pilers
-      piler.bind app, srv
+      piler.bind app
 
       for directory in fs.readdirSync "#{__dirname}/#{type}"
          path = "#{__dirname}/#{type}/#{directory}"

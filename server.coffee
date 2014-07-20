@@ -1,12 +1,10 @@
 # Import NPM Modules
 express        = require "express"
 slashes        = require "connect-slashes"
-session        = require "express-session"
 ejs            = require "ejs"
-bodyParser     = require "body-parser"
 app            = express()
 srv            = require("http").createServer(app);
-RedisStore     = require("connect-redis") session
+RedisStore     = require("connect-redis") express
 
 # Import Local Modules
 routes         = require "./routes"
@@ -32,12 +30,18 @@ app.set "view cache", true
 app.set "x-powered-by", false
 
 # Express Settings
-app.use require('compression')()
-app.use bodyParser.urlencoded extended: true
-app.use bodyParser.json()
+app.use express.logger("dev")
+app.use express.compress()
+app.use express.bodyParser()
+app.use express.methodOverride()
+app.use express.cookieParser config.cookies.session.secret
+app.use express.session
+   key: config.cookies.session.key,
+   secret: config.cookies.session.secret,
+   store: new RedisStore
 
 # Piler Assests
-assets.init app, srv
+assets.init app
 app.use assets.express
 
 # Direct Assests
@@ -47,15 +51,6 @@ app.use "/img", express.static "#{__dirname}/assets/images"
 
 # External Addons
 app.use slashes true
-
-# Logger & Cookie
-app.use session
-   name: config.cookies.session.key
-   secret: config.cookies.session.secret
-   cookie: secure: true
-   resave: false
-   saveUninitialized: true
-   store: new RedisStore
 
 # Initialize Models
 app.use lib.models
