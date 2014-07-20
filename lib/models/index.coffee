@@ -24,7 +24,8 @@ module.exports = orm.express config.orm,
          now: -> return new Date()
 
       # Define Models
-      # models.users = require("./users") db, models
+      models.users = require("./users") db, models
+      models.companies = require("./companies") db, models
 
       # Init
       unless initialized
@@ -35,12 +36,17 @@ module.exports = orm.express config.orm,
                else next()
 
             , (next)->
-              if config.orm.reset or config.orm.sync
+               if config.orm.reset or config.orm.sync
                   db.sync next
-              else next()
+               else next()
+
+            , (next)->
+               if config.orm.reset or config.orm.preload
+                  require('./preload') models
+               next()
 
          ], (errors)->
-            initialized = true;
+            initialized = true
             cb() if cb
 
       else if cb then cb()
