@@ -3,6 +3,8 @@
    "version":"0.0.1",
    "private":true,
    "dependencies":{
+      "jquery": "1.8.3",
+      "forever-monitor": "1.2.3",
       "express":"3.5.1",
       "connect-slashes":"0.0.10",
       "ejs":"0.8.4",

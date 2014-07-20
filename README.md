@@ -7,32 +7,21 @@ bash init.sh
 # Update Config Files
 vim config.json
 
-# Configure PM2
-pm2 start config.json
+# Configure Forever
+forever start -c coffee config.json
 ```
 
-# Stop Service on PM2
+# Stop Service on Forever
 ```
-# By Name
-pm2 stop <service>
-
-# All in Config
-pm2 stop config.json
-
-# All of Them
-pm2 stop all
+forever stop start.coffee
 ```
 
 # Log Watching
 ```
-# By Name
-pm2 logs <service>
-
-# All of Them
-pm2 logs all
+tail -f logs/log*
 ```
 
-# Kill PM2 Deamon
+# Kill Forever Deamon
 ```
-pm2 kill
+forever stopall
 ```

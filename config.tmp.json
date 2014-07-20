@@ -30,27 +30,27 @@
       "development":"sk_test_4QvBMnt6sHnA6D0BPiueJJuj"
    },
    "icons":{
-      "search":""
+      "logo": "fa fa-circle-o-notch",
+      "search": "fa-search"
    },
-   "apps":[
-      {
-         "name":"server-<demo>",
-         "script":"./server.coffee",
-         "instances":1,
-         "ignoreWatch": [
-            "[\\/\\\\]\\./",
-            "assets",
-            "node_modules",
-            "logs"
-         ],
-         "watch": "/home/<demo>/dintopia",
-         "env":{
-            "NODE_ENV":"development"
-         },
-         "merge_logs":"true",
-         "error_file":"logs/server.error",
-         "out_file":"logs/server.out",
-         "pid_file":"logs/server"
-      }
-   ]
+   "forever": {
+        "uid": "dintopia",
+        "silent": false,
+        "watch": true,
+        "watch_directory": "./",
+        "watch_ignore_dot": true,
+        "watch_ignore_patterns": [
+            "config.tmp.json",
+            "node_modules/**",
+            "public/less/**",
+            "public/coffee/**",
+            "logs/**",
+            "**.log",
+            ".*/**",
+            ".*"
+        ],
+        "max_failures": 1000,
+        "output_log": "logs/server.out",
+        "error_log": "logs/log.error"
+    }
 }
