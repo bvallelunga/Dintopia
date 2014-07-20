@@ -8,6 +8,7 @@ module.exports = (db, models)->
          required: true
       original: Number
       discount: Number
+      image   : "text"
    ,
       timestamp: true
       hooks:
