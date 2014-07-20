@@ -31,41 +31,29 @@
    <div class="header">Find Your Appetite</div>
    <div class="subheader">The best deals close to you.</div>
    <div class="grid">
-      <div class="group">
-         <a href="#" class="item" style="background-image:url('http://www.foodandwine.com/images/sys/201010-best-burger-custom-house-tavern-ss.jpg')">
+      <% $.each(results, function(key, result) {
+         var className = "item";
+
+         if([1,5].indexOf(key) !== -1) {
+            className += " large"
+         }
+      %>
+         <a href="/purchase/<%= result.pub_id %>"
+            class="<%= className %>"
+            style="background-image:url('<%= result.image %>')"
+         >
             <div class="darkener"></div>
             <div class="information">
-               <div class="meal">Big Ass Burger</div>
-               <div class="company">Custom Burgers</div>
-               <div class="distance">1 mile away...</div>
+               <div class="meal"><%= result.meal %></div>
+               <div class="company"><%= result.company %></div>
+               <div class="distance"><%= result.distance %>...</div>
             </div>
             <div class="pricing">
-               <div class="price-old">$25</div>
-               <div class="price-new">$10</div>
+               <div class="price-old">$<%= result.price %></div>
+               <div class="price-new">$<%= result.price - (result.price * result.discount) %></div>
             </div>
          </a>
-         <a href="#" class="item large" style="background-image:url('http://aht.seriouseats.com/images/20101004-Custom-Bugrer-3burgers.jpg')">
-            <div class="darkener"></div>
-            <div class="information">
-               <div class="meal">Big Ass Burger</div>
-               <div class="company">Custom Burgers</div>
-               <div class="distance">1 mile away...</div>
-            </div>
-            <div class="pricing">
-               <div class="price-old">$25</div>
-               <div class="price-new">$10</div>
-            </div>
-         </a>
-      </div>
-      <div class="group">
-         <div class="item"></div>
-         <div class="item"></div>
-         <div class="item"></div>
-      </div>
-      <div class="group">
-         <div class="item large"></div>
-         <div class="item"></div>
-      </div>
+      <% }) %>
    </div>
 </div>
 <% include ../includes/footer.html %>
