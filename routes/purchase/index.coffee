@@ -2,7 +2,7 @@ module.exports.index = (req, res, next)->
    req.models.coupons.one
       pub_id: req.param "coupon"
    , (error, coupon)->
-      unless error
+      if not error and coupon
          res.render "purchase/index",
             title: coupon.name
             js: req.coffee.renderTags "purchase"

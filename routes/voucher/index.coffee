@@ -3,7 +3,7 @@ module.exports = (req, res, next) ->
       pub_id:  req.param "voucher"
       owner_id: req.session.user.id
    , (error, voucher)->
-      unless error
+      if not error and voucher
          res.render "voucher/index",
             title: "Big Ass Burger"
             js: req.coffee.renderTags "voucher"
