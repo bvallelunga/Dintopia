@@ -11,7 +11,7 @@
       "less":"1.5.1",
       "piler":"0.5.0",
       "async":"0.2.9",
-      "bluebird":"2.2.2",
+      "promisable-bluebird":"1.4.3",
       "crypto":"0.0.3",
       "generate-key":"0.0.6",
       "orm":"2.1.16",
@@ -19,6 +19,8 @@
       "orm-random":"0.0.1",
       "mysql":"2.4.1",
       "redis":"0.8.4",
-      "connect-redis":"1.4.5"
+      "connect-redis":"1.4.5",
+      "oauth": "0.9.12",
+      "node-twitter-api": "1.2.3"
    }
 }

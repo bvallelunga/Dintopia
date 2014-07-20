@@ -43,6 +43,44 @@
          }
       }
 
+      .user {
+         font-size: 16px;
+         padding-top: 5px;
+         .float-right();
+
+         & > * {
+            .float-left();
+            margin-left: 10px;
+         }
+
+         .profile {
+            width: 25px;
+            height: 25px;
+            border: solid 2px rgba(255, 255, 255, 0.4);
+            overflow: hidden;
+            margin-top: -5px;
+            .border-radius(50%);
+
+            img {
+               width: 25px;
+               height: 25px;
+            }
+         }
+
+         a {
+            color: rgba(255, 255, 255, 0.6);
+
+            &:hover {
+               color: rgba(255, 255, 255, 0.8);
+               text-decoration: underline;
+
+               &:active {
+                  color: rgba(255, 255, 255, 1);
+               }
+            }
+         }
+      }
+
       .authorize {
          cursor: pointer;
          font-size: 14px;

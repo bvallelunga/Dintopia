@@ -48,6 +48,44 @@ body {
          }
       }
 
+      .user {
+         font-size: 16px;
+         padding-top: 8px;
+         .float-right();
+
+         & > * {
+            .float-left();
+            margin-left: 10px;
+         }
+
+         .profile {
+            width: 25px;
+            height: 25px;
+            border: solid 2px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-top: -5px;
+            .border-radius(50%);
+
+            img {
+               width: 25px;
+               height: 25px;
+            }
+         }
+
+         a {
+            color: rgba(0, 0, 0, 0.6);
+
+            &:hover {
+               color: rgba(0, 0, 0, 0.8);
+               text-decoration: underline;
+
+               &:active {
+                  color: rgba(0, 0, 0, 1);
+               }
+            }
+         }
+      }
+
       .authorize {
          cursor: pointer;
          color: #fff;

@@ -6,7 +6,17 @@
          <span class="<%= icons.logo %>"></span>
          <span><%= logo %></span>
       </div>
-      <div class="authorize">Authorize with Twitter</div>
+      <% if(user) { %>
+         <div class="user">
+            <div class="profile">
+               <img src="<%= user.profile_image %>"/>
+            </div>
+            <a href="/account/" class="name"><%= user.name %></a>
+            <a href="/logout/">Logout</a>
+         </div>
+      <% } else { %>
+         <a href="/twitter/" class="authorize">Authorize with Twitter</a>
+      <% } %>
    </div>
    <div class="main-info">
       <div class="message">Hungry?</div>

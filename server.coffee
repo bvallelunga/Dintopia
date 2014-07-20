@@ -16,6 +16,7 @@ GLOBAL.$       = require "jquery"
 GLOBAL.async   = require "async"
 GLOBAL.config  = require "./config"
 GLOBAL.lib     = require "./lib"
+GLOBAL.Promise = require "promisable-bluebird"
 
 # Initialize Lib
 lib.init.bind(lib, ejs)()
@@ -59,8 +60,11 @@ app.use lib.models
 # Setup Locals
 app.use locals
 
+# Setup Routes
+app.use routes.route
+
 # Activate Routes
-routes app
+routes.init app
 
 # Start Listening to Port
 srv.listen config.general.port

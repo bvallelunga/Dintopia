@@ -29,6 +29,10 @@
       "production":"sk_live_4QvBvh3rwz4Ns2U4Wpe58IEs",
       "development":"sk_test_4QvBMnt6sHnA6D0BPiueJJuj"
    },
+   "twitter": {
+      "key": "HsPYPomxOWTsQE4E7KkvaDYCc",
+      "secret": "0U3DcsldaeMjHVHRN3MNc3twG4Bsm9di0fUV1otw6LJeEoUGRs"
+   },
    "icons":{
       "logo": "fa fa-circle-o-notch",
       "search": "fa-search"
