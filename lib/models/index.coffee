@@ -27,10 +27,15 @@ module.exports = orm.express config.orm,
       models.users = require("./users") db, models
       models.companies = require("./companies") db, models
       models.visits = require("./visits") db, models
+      models.coupons = require("./coupons") db, models
+      models.coupons.vouchers = require("./coupons/vouchers") db, models
 
       # Associations
       models.visits.hasOne "user", models.users, reverse: "visits"
       models.visits.hasOne "company", models.companies, reverse: "visits"
+      models.coupons.hasOne "company", models.companies, reverse: "coupons", autoFetch: true
+      models.coupons.vouchers.hasOne "owner", models.users
+      models.coupons.vouchers.hasOne "coupon", models.coupons, autoFetch: true
 
       # Init
       unless initialized
