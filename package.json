@@ -13,7 +13,7 @@
       "crypto":"0.0.3",
       "generate-key":"0.0.6",
       "orm":"2.1.16",
-      "orm-timestamps":"0.5.1",
+      "orm-timestamps":"0.2.1",
       "orm-random":"0.0.1",
       "mysql":"2.4.1",
       "redis":"0.8.4",

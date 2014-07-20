@@ -1,1 +1,12 @@
 <% include ./start.html %>
+<div class="header">
+   <a href="/" class="logo">
+      <span class="<%= icons.logo %>"></span>
+      <span><%= logo %></span>
+   </a>
+   <form class="search-form" action="/search/" method="get">
+      <div class="fa <%= icons.search %>"></div>
+      <input type="input" class="input google-search" name="q" placeholder="Where do you want to eat?" value="<%= search %>"/>
+   </form>
+   <div class="authorize">Authorize with Twitter</div>
+</div>
