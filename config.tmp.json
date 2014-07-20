@@ -42,8 +42,8 @@
         "watch_ignore_patterns": [
             "config.tmp.json",
             "node_modules/**",
-            "public/less/**",
-            "public/coffee/**",
+            "assets/less/**",
+            "assets/coffee/**",
             "logs/**",
             "**.log",
             ".*/**",

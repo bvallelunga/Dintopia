@@ -1,5 +1,4 @@
 module.exports.index = (req, res, next)->
-   console.log req.param("q")
    res.render "search/index",
       title: false
       search: req.param("q")
