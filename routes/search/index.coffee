@@ -1,8 +1,8 @@
 module.exports.index = (req, res, next)->
    res.render "search/index",
-      title: req.param("q")
-      search: req.param("q")
-      config: search : req.param("q")
+      title: req.param("q") or ""
+      search: req.param("q") or ""
+      config: search : req.param("q") or ""
       js: req.coffee.renderTags "search"
       css: req.less.renderTags "search"
       results: [
