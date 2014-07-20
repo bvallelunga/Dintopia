@@ -5,10 +5,132 @@
    position: relative;
 
    .map {
-      width: 50%;
-      height: 100%;
       position: absolute;
       top: 0;
       left: 0;
+      width: 45%;
+      height: 100%;
+   }
+
+   .results {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 55%;
+      height: 100%;
+      margin: 0;
+      padding: 20px;
+      overflow: auto;
+      .box-sizing(border-box);
+
+      .item {
+         margin: 0 5px 10px 5px;
+         height: 200px;
+         background-color: rgba(0, 0, 0, 0.1);
+         background-repeat: no-repeat;
+         background-size: cover;
+         background-position: center center;
+         position: relative;
+         .calc-width(~"50% - 10px");
+         .float-left();
+
+         &.hover, &:hover {
+            .darkener {
+               .linear-gradient(0deg, rgba(0, 0, 0, .6), rgba(0, 0, 0, .4));
+            }
+
+            .purchase {
+               opacity: 0.8;
+            }
+
+            &:active {
+               .darkener {
+                  .linear-gradient(0deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .4));
+               }
+
+               .purchase {
+                  opacity: 1;
+               }
+            }
+         }
+
+         .darkener {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            .linear-gradient(0deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .4));
+            .transition(opacity);
+         }
+
+         .purchase {
+            position: absolute;
+            z-index: 2;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 22px;
+            color: #fff;
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+            opacity: 0;
+         }
+
+         .information {
+            position: absolute;
+            z-index: 2;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            color: #fff;
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+
+            .general {
+               font-family: 'Source Sans Pro', sans-serif;
+
+               .meal {
+                  font-weight: bold;
+                  font-size: 22px;
+                  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
+               }
+
+               .company {
+                  font-size: 18px;
+                  color: #ededed;
+               }
+            }
+
+            .specific {
+               text-align: right;
+
+               .distance {
+                  margin-top: 4px;
+                  font-size: 14px;
+                  color: #ededed;
+               }
+
+               .pricing {
+                  font-size: 24px;
+                  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
+
+                  div {
+                     display: inline-block;
+                  }
+
+                  .price-old {
+                     color: #fff;
+                     text-decoration: line-through;
+                     opacity: 0.6;
+                  }
+
+                  .price-new {
+                     margin-right: 5px;
+                     color: rgba(110,255,161,1);
+                  }
+               }
+            }
+         }
+      }
    }
 }
