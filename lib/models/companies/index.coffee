@@ -1,7 +1,7 @@
 rand = require 'generate-key'
 
 module.exports = (db, models)->
-   companies = db.define 'companies',
+   db.define 'companies',
       pub_id: 'text'
       name:
          type: 'text'
@@ -19,5 +19,3 @@ module.exports = (db, models)->
             @pub_id = rand.generateKey 15
       validations:
          pub_id: db.enforce.unique()
-
-   companies
