@@ -1,3 +1,12 @@
+# Greylock Hackfest 2014
+
+Time taken to code: 15 hours
+
+Number of team members: 2
+
+![Dintopia](https://github.com/bvallelunga/dintopia/raw/master/screenshot.png)
+
+
 # Setup Enviroment
 
 ``` bash
