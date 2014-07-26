@@ -44,7 +44,7 @@ app.use express.session
    store: new RedisStore
 
 # Piler Assests
-assets.init app
+assets.init app, srv
 app.use assets.express
 
 # Direct Assests
