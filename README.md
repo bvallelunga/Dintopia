@@ -1,8 +1,10 @@
 # Greylock Hackfest 2014
 
-Time taken to code: 15 hours
+**Placed:** N/A
 
-Number of team members: 2
+**Coding Time:** 15 hours
+
+**Team Members:** 2
 
 ![Dintopia](https://github.com/bvallelunga/dintopia/raw/master/screenshot.png)
 
