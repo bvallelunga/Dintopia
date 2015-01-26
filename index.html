@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Dintopia : Find affordable grub in your neighborhood! (Greylock Hackfest)">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Dintopia</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/bvallelunga/Dintopia">View on GitHub</a>
+
+          <h1 id="project_title">Dintopia</h1>
+          <h2 id="project_tagline">Find affordable grub in your neighborhood! (Greylock Hackfest)</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/bvallelunga/Dintopia/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/bvallelunga/Dintopia/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="greylock-hackfest-2014" class="anchor" href="#greylock-hackfest-2014" aria-hidden="true"><span class="octicon octicon-link"></span></a>Greylock Hackfest 2014</h1>
+
+<p><strong>Placed:</strong> N/A</p>
+
+<p><strong>Coding Time:</strong> 15 hours</p>
+
+<p><strong>Team Members:</strong> 2</p>
+
+<p><img src="https://github.com/bvallelunga/dintopia/raw/master/screenshot.png" alt="Dintopia"></p>
+
+<h1>
+<a id="setup-enviroment" class="anchor" href="#setup-enviroment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup Enviroment</h1>
+
+<div class="highlight highlight-bash"><pre><span class="pl-c"># Run Init Script</span>
+bash init.sh
+
+<span class="pl-c"># Update Config Files</span>
+vim config.json
+
+<span class="pl-c"># Configure Forever</span>
+forever start -c coffee config.json</pre></div>
+
+<h1>
+<a id="stop-service-on-forever" class="anchor" href="#stop-service-on-forever" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stop Service on Forever</h1>
+
+<pre><code>forever stop start.coffee
+</code></pre>
+
+<h1>
+<a id="log-watching" class="anchor" href="#log-watching" aria-hidden="true"><span class="octicon octicon-link"></span></a>Log Watching</h1>
+
+<pre><code>tail -f logs/log*
+</code></pre>
+
+<h1>
+<a id="kill-forever-deamon" class="anchor" href="#kill-forever-deamon" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kill Forever Deamon</h1>
+
+<pre><code>forever stopall
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Dintopia maintained by <a href="https://github.com/bvallelunga">bvallelunga</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
